@@ -4,10 +4,10 @@ const { Pool } = require('pg');
 
 // Configuração do pool de conexões com o PostgreSQL
 const pool = new Pool({
-  user: 'central_mensagens_api_user',
-  host: 'app.rotele.com.br',           
-  database: 'central_mensagens',       
-  password: 'taMrZ2SA7031v9ME',       
+  user: '',
+  host: '',           
+  database: '',       
+  password: '',       
   port: 5555,                  
 });
 
