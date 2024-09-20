@@ -4,8 +4,8 @@ const { Pool } = require('pg');
 
 // Configuração do pool de conexões com o PostgreSQL
 const pool = new Pool({
-  user: 'central_mensagens_user_api',
-  host: '127.0.0.1',           
+  user: 'central_mensagens_api_user',
+  host: 'app.rotele.com.br',           
   database: 'central_mensagens',       
   password: 'taMrZ2SA7031v9ME',       
   port: 5555,                  
@@ -16,7 +16,7 @@ const salvarWebhookNoBanco = async (sessionId, dataType, data) => {
   const conteudoJson = JSON.stringify({ sessionId, dataType, data });
 
   try {
-    await pool.query('CALL fn_salvar_webhook($1)', [conteudoJson]);
+    await pool.query('select fn_salvar_webhook($1)', [conteudoJson]);
     console.log('Webhook salvo no banco com sucesso.');
   } catch (error) {
     console.error('Erro ao salvar webhook no banco:', error.message);
